@@ -16,7 +16,7 @@ namespace LINQChallenges
         static void Main(string[] args)
         {
                          // replace this method call to test your solution
-            var result = LongStrings();
+            var result = OnlySWords();
 
             foreach (var item in result)
             {

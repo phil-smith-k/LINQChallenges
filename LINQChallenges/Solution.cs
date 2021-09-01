@@ -50,7 +50,9 @@ namespace LINQChallenges
 
             var option4 = _strings.Where(s => Char.ToLower(s.First()) == 's');
 
-            return option4;
+            var option5 = _strings.Where(s => s.ToLower().StartsWith("s"));
+
+            return option5;
         }
         #endregion
 
@@ -127,10 +129,17 @@ namespace LINQChallenges
         // (either there lower or upper bound is greater than 90k)
         public static IEnumerable<string> AllExpensiveApplicants()
         {
-            return _applicantList
+            var option1 = _applicantList
                 .Where(x => x.SalaryRange.LowerBound > 90_000 || x.SalaryRange.UpperBound > 90_000)
                 .OrderBy(x => x.LastName)
                 .Select(x => $"{x.FirstName} {x.LastName}");
+
+            var option2 = _applicantList
+                .Where(x => x.SalaryRange.UpperBound > 90_000)
+                .OrderBy(x => x.LastName)
+                .Select(x => $"{x.FirstName} {x.LastName}");
+
+            return option2;
         }
         #endregion
     }
